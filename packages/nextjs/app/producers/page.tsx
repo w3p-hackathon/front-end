@@ -67,7 +67,7 @@ const ProducersPage: NextPage = () => {
                   <tr>
                     <th>Researcher</th>
                     <th>Test Name</th>
-                    <th>Offer Amount (ETH)</th>
+                    <th>Offer Amount (SNP)</th>
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>

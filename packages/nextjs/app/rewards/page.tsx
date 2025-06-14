@@ -5,11 +5,11 @@ const rewards = [
     id: 1,
     name: "Early Adopter Badge",
     description: "Awarded to the first 100 users.",
-    amount: "0.05 ETH",
+    amount: "0.05 SNP",
     status: "Available",
   },
-  { id: 2, name: "Referral Bonus", description: "Invite 5 friends to claim.", amount: "0.10 ETH", status: "Available" },
-  { id: 3, name: "Beta Tester", description: "Participate in beta testing.", amount: "0.02 ETH", status: "Claimed" },
+  { id: 2, name: "Referral Bonus", description: "Invite 5 friends to claim.", amount: "0.10 SNP", status: "Available" },
+  { id: 3, name: "Beta Tester", description: "Participate in beta testing.", amount: "0.02 SNP", status: "Claimed" },
 ];
 
 const RewardsPage: NextPage = () => {
