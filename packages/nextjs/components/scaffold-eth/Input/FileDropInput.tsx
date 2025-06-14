@@ -59,7 +59,13 @@ export const FileDropInput: React.FC<FileDropInputProps> = ({ onProcess }) => {
   return (
     <div className="flex flex-col items-center gap-4 w-full max-w-md mx-auto">
       <div
-        className={`w-full border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${dragActive ? "border-blue-500 bg-blue-50" : "border-gray-300 bg-white"}`}
+        className={`w-full border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors
+          ${
+            dragActive
+              ? "border-accent bg-base-300 shadow-[0_0_16px_2px_var(--color-accent)]"
+              : "border-base-300 bg-base-200"
+          }
+        `}
         onDragEnter={handleDrag}
         onDragOver={handleDrag}
         onDragLeave={handleDrag}
@@ -68,9 +74,9 @@ export const FileDropInput: React.FC<FileDropInputProps> = ({ onProcess }) => {
       >
         <input type="file" ref={inputRef} className="hidden" onChange={handleChange} />
         {file ? (
-          <span className="text-green-600">{file.name}</span>
+          <span className="text-accent font-bold">{file.name}</span>
         ) : (
-          <span>Drag & drop a file here, or click to select</span>
+          <span className="text-base-content/80">Drag & drop a file here, or click to select</span>
         )}
       </div>
       <button
