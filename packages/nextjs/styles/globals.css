@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=VT323&display=swap");
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
@@ -41,22 +42,22 @@
 @plugin "daisyui/theme" {
   name: "dark";
 
-  --color-primary: #212638;
-  --color-primary-content: #f9fbff;
-  --color-secondary: #323f61;
-  --color-secondary-content: #f9fbff;
-  --color-accent: #4969a6;
-  --color-accent-content: #f9fbff;
-  --color-neutral: #f9fbff;
-  --color-neutral-content: #385183;
-  --color-base-100: #385183;
-  --color-base-200: #2a3655;
-  --color-base-300: #212638;
-  --color-base-content: #f9fbff;
-  --color-info: #385183;
-  --color-success: #34eeb6;
-  --color-warning: #ffcf72;
-  --color-error: #ff8863;
+  --color-primary: #ff00cc; /* Neon Pink */
+  --color-primary-content: #ffffff; /* White text */
+  --color-secondary: #ff00cc; /* Neon Blue */
+  --color-secondary-content: #ffffff;
+  --color-accent: #39ff14; /* Neon Green */
+  --color-accent-content: #000000; /* Black text for neon */
+  --color-neutral: #bc13fe; /* Neon Purple */
+  --color-neutral-content: #ffffff;
+  --color-base-100: #000000; /* Pure Black */
+  --color-base-200: #111111; /* Very dark gray */
+  --color-base-300: #1a1a1a; /* Dark gray */
+  --color-base-content: #ffffff; /* White text */
+  --color-info: #fff700; /* Neon Yellow */
+  --color-success: #39ff14; /* Neon Green */
+  --color-warning: #fff700; /* Neon Yellow */
+  --color-error: #ff00cc; /* Neon Pink */
 
   --radius-field: 9999rem;
   --radius-box: 1rem;
@@ -86,7 +87,9 @@
     margin: 1rem 0;
   }
 
+  html,
   body {
+    font-family: "Orbitron", "Share Tech Mono", "VT323", monospace, "sans-serif";
     min-height: 100vh;
   }
 
