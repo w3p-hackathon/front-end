@@ -7381,6 +7381,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"framer-motion@npm:^12.18.1":
+  version: 12.18.1
+  resolution: "framer-motion@npm:12.18.1"
+  dependencies:
+    motion-dom: ^12.18.1
+    motion-utils: ^12.18.1
+    tslib: ^2.4.0
+  peerDependencies:
+    "@emotion/is-prop-valid": "*"
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@emotion/is-prop-valid":
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: a07259ee22cee91138677d9fe89cc9e20b7ad85310f33945c695e67255a975c7546dc2ccf70cf047b893aea19c08a777e57589f5fc549d0e5af42009409cba3e
+  languageName: node
+  linkType: hard
+
 "fs-extra@npm:11.1.0":
   version: 11.1.0
   resolution: "fs-extra@npm:11.1.0"
@@ -9909,6 +9931,43 @@ __metadata:
   languageName: node
   linkType: hard
 
+"motion-dom@npm:^12.18.1":
+  version: 12.18.1
+  resolution: "motion-dom@npm:12.18.1"
+  dependencies:
+    motion-utils: ^12.18.1
+  checksum: d080403855d2afb73d0d120e67eb6e27f425e4c03ab3dbdaa21fe4096c81c70be4c2e4687f2fa219d4b9d2f90293345708272f64a53698eb078bb460666feaee
+  languageName: node
+  linkType: hard
+
+"motion-utils@npm:^12.18.1":
+  version: 12.18.1
+  resolution: "motion-utils@npm:12.18.1"
+  checksum: 789a10c6ddadaa0bcac9e49ecaad88b7543f25d11ac2362ac0d480a378bee2aa28ce27dfb0fe98d3cd95dc9df428b95eb0974c5821dd5981016e76d40022f50a
+  languageName: node
+  linkType: hard
+
+"motion@npm:^12.18.1":
+  version: 12.18.1
+  resolution: "motion@npm:12.18.1"
+  dependencies:
+    framer-motion: ^12.18.1
+    tslib: ^2.4.0
+  peerDependencies:
+    "@emotion/is-prop-valid": "*"
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@emotion/is-prop-valid":
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 78746964d0ed81781615fa88086f3a15c3a25dcd6186f585017f6e9be2cce469e27e348ff1e6261fc3af647f8223014d9fc57dcdd8a97d663f5e71a07badbfa6
+  languageName: node
+  linkType: hard
+
 "mri@npm:1.2.0, mri@npm:^1.1.0":
   version: 1.2.0
   resolution: "mri@npm:1.2.0"
@@ -11579,6 +11638,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-icons@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "react-icons@npm:5.5.0"
+  peerDependencies:
+    react: "*"
+  checksum: cbd74f4b7982e6e18d59798a6b578268c8eb0909d78d87bcf9b25f99b3e544fd189a76551cb5e770d17f154a60b668551aee108aaf8471309b23f7af3b2c5b07
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -12026,6 +12094,8 @@ __metadata:
     ethers: ^6.14.4
     husky: ~9.1.6
     lint-staged: ~13.2.2
+    motion: ^12.18.1
+    react-icons: ^5.5.0
   languageName: unknown
   linkType: soft
 
