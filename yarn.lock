@@ -19,6 +19,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aztec/bb.js@npm:0.84.0":
+  version: 0.84.0
+  resolution: "@aztec/bb.js@npm:0.84.0"
+  dependencies:
+    comlink: ^4.4.1
+    commander: ^12.1.0
+    debug: ^4.3.4
+    fflate: ^0.8.0
+    pako: ^2.1.0
+    tslib: ^2.4.0
+  bin:
+    bb.js: dest/node/main.js
+  checksum: 11a0fe7bd68b8099dc619062d1bc9937693d2b3502d79a5fb916df3b7a2c5ea89217225aa544cf66b61bcdce843a70b4692ed27fcacc604051891192203e2fc9
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.22.13, @babel/code-frame@npm:^7.27.1":
   version: 7.27.1
   resolution: "@babel/code-frame@npm:7.27.1"
@@ -1676,6 +1692,41 @@ __metadata:
     "@nodelib/fs.scandir": 2.1.5
     fastq: ^1.6.0
   checksum: 190c643f156d8f8f277bf2a6078af1ffde1fd43f498f187c2db24d35b4b4b5785c02c7dc52e356497b9a1b65b13edc996de08de0b961c32844364da02986dc53
+  languageName: node
+  linkType: hard
+
+"@noir-lang/acvm_js@npm:1.0.0-beta.6":
+  version: 1.0.0-beta.6
+  resolution: "@noir-lang/acvm_js@npm:1.0.0-beta.6"
+  checksum: a68662608df683fb189eb56d74f594fb0d3597a6e8d2a1e73aa1209c04de581e4d70e7a9a5f96c1c8274742cde6ba15cba13c4bfd021c4c5f79a619faa87cee8
+  languageName: node
+  linkType: hard
+
+"@noir-lang/noir_js@npm:1.0.0-beta.6":
+  version: 1.0.0-beta.6
+  resolution: "@noir-lang/noir_js@npm:1.0.0-beta.6"
+  dependencies:
+    "@noir-lang/acvm_js": 1.0.0-beta.6
+    "@noir-lang/noirc_abi": 1.0.0-beta.6
+    "@noir-lang/types": 1.0.0-beta.6
+    pako: ^2.1.0
+  checksum: ecd3334fd45693b856ec95ddd622eb6a119a10b4ce6b7f560e3400683cf0dc80499ea1d03cdf83456c5a24e6204a026d845cb0019395e33e976b7c23875519a9
+  languageName: node
+  linkType: hard
+
+"@noir-lang/noirc_abi@npm:1.0.0-beta.6":
+  version: 1.0.0-beta.6
+  resolution: "@noir-lang/noirc_abi@npm:1.0.0-beta.6"
+  dependencies:
+    "@noir-lang/types": 1.0.0-beta.6
+  checksum: b9b01776ac24786923e238988ade829dda0fe4f9ee1b16895b809d11158db5bbeb997dc1cd210fcca5434591eac1495a191b66e127a951adcf0c8ff32976c73d
+  languageName: node
+  linkType: hard
+
+"@noir-lang/types@npm:1.0.0-beta.6":
+  version: 1.0.0-beta.6
+  resolution: "@noir-lang/types@npm:1.0.0-beta.6"
+  checksum: 3ab335777829722743bfe385c76c25abc2df11720d08ac0844cc1cd2bebf86a67b87e7d31892fad9aa8cdbcf2cae5d93b8665dd9d0b3178366f4700e931b1ea1
   languageName: node
   linkType: hard
 
@@ -5459,10 +5510,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"comlink@npm:^4.4.1":
+  version: 4.4.2
+  resolution: "comlink@npm:4.4.2"
+  checksum: 35313f26fdd78c202be21be49a7607f57e9e91963399b524676742ee0cf7db589be500d923ed0809b53f37996461186fb345bf867d93236be22bfae3cb7bd07e
+  languageName: node
+  linkType: hard
+
 "commander@npm:^10.0.0":
   version: 10.0.1
   resolution: "commander@npm:10.0.1"
   checksum: 436901d64a818295803c1996cd856621a74f30b9f9e28a588e726b2b1670665bccd7c1a77007ebf328729f0139838a88a19265858a0fa7a8728c4656796db948
+  languageName: node
+  linkType: hard
+
+"commander@npm:^12.1.0":
+  version: 12.1.0
+  resolution: "commander@npm:12.1.0"
+  checksum: 68e9818b00fc1ed9cdab9eb16905551c2b768a317ae69a5e3c43924c2b20ac9bb65b27e1cab36aeda7b6496376d4da908996ba2c0b5d79463e0fb1e77935d514
   languageName: node
   linkType: hard
 
@@ -7110,6 +7175,13 @@ __metadata:
     picomatch:
       optional: true
   checksum: fe9f3014901d023cf631831dcb9eae5447f4d7f69218001dd01ecf007eccc40f6c129a04411b5cc273a5f93c14e02e971e17270afc9022041c80be924091eb6f
+  languageName: node
+  linkType: hard
+
+"fflate@npm:^0.8.0":
+  version: 0.8.2
+  resolution: "fflate@npm:0.8.2"
+  checksum: 29470337b85d3831826758e78f370e15cda3169c5cd4477c9b5eea2402261a74b2975bae816afabe1c15d21d98591e0d30a574f7103aa117bff60756fa3035d4
   languageName: node
   linkType: hard
 
@@ -10816,6 +10888,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pako@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "pako@npm:2.1.0"
+  checksum: 71666548644c9a4d056bcaba849ca6fd7242c6cf1af0646d3346f3079a1c7f4a66ffec6f7369ee0dc88f61926c10d6ab05da3e1fca44b83551839e89edd75a3e
+  languageName: node
+  linkType: hard
+
 "parent-module@npm:^1.0.0":
   version: 1.0.1
   resolution: "parent-module@npm:1.0.1"
@@ -11888,6 +11967,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
+    "@aztec/bb.js": 0.84.0
+    "@noir-lang/noir_js": 1.0.0-beta.6
     husky: ~9.1.6
     lint-staged: ~13.2.2
   languageName: unknown
