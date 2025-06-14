@@ -5,7 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { hardhat } from "viem/chains";
-import { ArrowDownOnSquareStackIcon, Bars3Icon, HomeIcon, UserGroupIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowDownOnSquareStackIcon,
+  Bars3Icon,
+  CurrencyDollarIcon,
+  HomeIcon,
+  UserGroupIcon,
+} from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
 
@@ -32,11 +38,11 @@ export const menuLinks: HeaderMenuLink[] = [
     icon: <ArrowDownOnSquareStackIcon className="h-4 w-4" />,
   },
 
-  // {
-  //   label: "Debug Contracts",
-  //   href: "/debug",
-  //   icon: <BugAntIcon className="h-4 w-4" />,
-  // },
+  {
+    label: "Claim Rewards",
+    href: "/rewards",
+    icon: <CurrencyDollarIcon className="h-4 w-4" />,
+  },
 ];
 
 export const HeaderMenuLinks = () => {
