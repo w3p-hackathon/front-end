@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { NextPage } from "next";
+import { ArrowPathIcon, ClockIcon, DocumentCheckIcon } from "@heroicons/react/24/outline";
 
 // Mock genetics data
 const geneticsData = [
@@ -50,7 +51,14 @@ const ongoingTests = [
     id: "t2",
     name: "Gene Expression Study",
     genomes: [geneticsData[2]],
-    progress: 30,
+    progress: 100,
+    status: "Completed",
+  },
+  {
+    id: "t3",
+    name: "Genome Analysis",
+    genomes: [geneticsData[0], geneticsData[1], geneticsData[2]],
+    progress: 20,
     status: "Running",
   },
 ];
@@ -63,6 +71,8 @@ const pendingTests = [
     genomes: [geneticsData[1]],
     requestedAt: "2024-06-10",
     owner: geneticsData[1].owner,
+    approvals: 0,
+    rejections: 0,
   },
   {
     id: "p2",
@@ -70,10 +80,12 @@ const pendingTests = [
     genomes: [geneticsData[0], geneticsData[2]],
     requestedAt: "2024-06-09",
     owner: geneticsData[0].owner,
+    approvals: 1,
+    rejections: 1,
   },
 ];
 
-const TAB_ONGOING = "Ongoing Test";
+const TAB_ONGOING = "Ongoing Tests";
 const TAB_PENDING = "Pending";
 const TAB_CREATE = "Create Test";
 const TABS = [TAB_CREATE, TAB_ONGOING, TAB_PENDING];
@@ -96,6 +108,10 @@ const ConsumersPage: NextPage = () => {
   const [subsetValue, setSubsetValue] = useState<string>("");
   const [chromosomeValue, setChromosomeValue] = useState<string>("");
   const [researchType, setResearchType] = useState<string>("");
+  const [snpInput, setSnpInput] = useState<string>("");
+  const [snps, setSnps] = useState<string[]>([]);
+  const [offerAmount, setOfferAmount] = useState<string>("");
+  const [modalTest, setModalTest] = useState<any>(null);
 
   const handleGenomeSelect = (id: string) => {
     setSelectedGenomes(prev => (prev.includes(id) ? prev.filter(gid => gid !== id) : [...prev, id]));
@@ -104,7 +120,7 @@ const ConsumersPage: NextPage = () => {
   const handleCreateTest = (e: React.FormEvent) => {
     e.preventDefault();
     alert(
-      `Test created!\nName: ${testName}\nDescription: ${testDescription}\nResearch Type: ${researchType}\nGenomes: ${selectedGenomes.join(", ")}`,
+      `Test created!\nName: ${testName}\nDescription: ${testDescription}\nResearch Type: ${researchType}\nOffer Amount: ${offerAmount} ETH\nSNPs: ${snps.join(", ")}\nGenomes: ${selectedGenomes.join(", ")}`,
     );
     setSelectedGenomes([]);
     setTestName("");
@@ -113,6 +129,20 @@ const ConsumersPage: NextPage = () => {
     setSubsetValue("");
     setChromosomeValue("");
     setResearchType("");
+    setSnps([]);
+    setSnpInput("");
+    setOfferAmount("");
+  };
+
+  const handleAddSnp = () => {
+    if (snpInput.trim() && !snps.includes(snpInput.trim())) {
+      setSnps([...snps, snpInput.trim()]);
+      setSnpInput("");
+    }
+  };
+
+  const handleRemoveSnp = (snp: string) => {
+    setSnps(snps.filter(s => s !== snp));
   };
 
   // Filtering logic
@@ -147,7 +177,7 @@ const ConsumersPage: NextPage = () => {
             className={`px-4 py-2 mx-1 rounded-t-lg font-semibold border-b-2 transition-colors ${
               activeTab === tab
                 ? "border-primary text-primary"
-                : "border-transparent text-base-content/60 hover:text-primary"
+                : "border-transparent text-base-content/60 hover:text-primary hover:cursor-pointer"
             }`}
             onClick={() => setActiveTab(tab)}
           >
@@ -270,6 +300,53 @@ const ConsumersPage: NextPage = () => {
                 </div>
               </div>
               <div className="mb-4">
+                <label className="block mb-2 font-medium">SNPs:</label>
+                <div className="flex gap-2 mb-2">
+                  <input
+                    className="input input-bordered flex-1"
+                    value={snpInput}
+                    onChange={e => setSnpInput(e.target.value)}
+                    placeholder="Enter SNP"
+                    onKeyDown={e => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        handleAddSnp();
+                      }
+                    }}
+                  />
+                  <button type="button" className="btn btn-primary" onClick={handleAddSnp} disabled={!snpInput.trim()}>
+                    +
+                  </button>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {snps.map(snp => (
+                    <span key={snp} className="badge badge-outline flex items-center gap-1">
+                      {snp}
+                      <button
+                        type="button"
+                        className="ml-1 btn btn-xs btn-circle btn-ghost"
+                        onClick={() => handleRemoveSnp(snp)}
+                      >
+                        ×
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="mb-4">
+                <label className="block mb-2 font-medium">Offer Amount:</label>
+                <input
+                  className="input input-bordered w-full"
+                  type="number"
+                  min="0"
+                  step="any"
+                  placeholder="ETH"
+                  value={offerAmount}
+                  onChange={e => setOfferAmount(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-4">
                 <label className="block mb-2 font-medium">Select Genome Data:</label>
                 {selectedFilters.length === 0 ? (
                   <div className="text-base-content/60">Select at least one filter to view genome data.</div>
@@ -305,7 +382,9 @@ const ConsumersPage: NextPage = () => {
               <button
                 type="submit"
                 className="btn btn-primary"
-                disabled={selectedGenomes.length === 0 || !testName || !testDescription || !researchType}
+                disabled={
+                  selectedGenomes.length === 0 || !testName || !testDescription || !researchType || !offerAmount
+                }
               >
                 Create Test
               </button>
@@ -320,23 +399,76 @@ const ConsumersPage: NextPage = () => {
             ) : (
               <div className="space-y-6">
                 {ongoingTests.map(test => (
-                  <div key={test.id} className="border border-base-300 rounded-lg p-4">
+                  <div
+                    key={test.id}
+                    className="border border-base-300 rounded-lg p-4 cursor-pointer hover:shadow-lg transition-shadow"
+                    onClick={() => setModalTest(test)}
+                  >
                     <div className="flex justify-between items-center mb-2">
                       <div className="font-semibold text-lg">{test.name}</div>
-                      <span className="badge badge-info">{test.status}</span>
+                      <span className={`badge ${test.status === "Completed" ? "badge-success" : "badge-info"}`}>
+                        {test.status === "Completed" ? (
+                          <>
+                            <span className="mr-1">
+                              <DocumentCheckIcon className="h-4 w-4" />
+                            </span>
+                            {test.status}
+                          </>
+                        ) : (
+                          <>
+                            <span className="mr-1 animate-spin inline-block">
+                              <ArrowPathIcon className="h-4 w-4" />
+                            </span>
+                            {test.status}
+                          </>
+                        )}
+                      </span>
                     </div>
                     <div className="mb-2 text-sm text-base-content/70">
                       Genomes: {test.genomes.map(g => g.title).join(", ")}
                     </div>
                     <div className="w-full bg-base-200 rounded-full h-3 mb-2">
                       <div
-                        className="bg-primary h-3 rounded-full transition-all"
+                        className={`h-3 rounded-full transition-all ${test.status === "Completed" ? "bg-success" : "bg-primary"}`}
                         style={{ width: `${test.progress}%` }}
                       ></div>
                     </div>
-                    <div className="text-xs text-base-content/60">Progress: {test.progress}%</div>
+                    <div className="text-xs text-base-content/60">
+                      {test.status === "Completed" ? "Completed" : `Progress: ${test.progress}%`}
+                    </div>
                   </div>
                 ))}
+              </div>
+            )}
+            {/* Modal for research result */}
+            {modalTest && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+                <div className="bg-base-100 rounded-xl shadow-lg p-8 w-full max-w-md relative">
+                  <button
+                    className="absolute top-2 right-2 btn btn-sm btn-circle btn-ghost"
+                    onClick={() => setModalTest(null)}
+                  >
+                    ✕
+                  </button>
+                  <h3 className="text-xl font-bold mb-4">Research Result</h3>
+                  <div className="mb-2 font-semibold">{modalTest.name}</div>
+                  <div className="mb-2 text-sm text-base-content/70">
+                    Genomes: {modalTest.genomes.map((g: any) => g.title).join(", ")}
+                  </div>
+                  {modalTest.status === "Completed" ? (
+                    <div>
+                      <div className="mb-2 text-success font-semibold">Test completed!</div>
+                      <div className="mb-2">Here are the results:</div>
+                      <ul className="list-disc list-inside text-base-content/80">
+                        <li>Result 1: 0.87</li>
+                        <li>Result 2: 0.42</li>
+                        <li>Result 3: 0.99</li>
+                      </ul>
+                    </div>
+                  ) : (
+                    <div className="text-info">Test is still running... Please check back later.</div>
+                  )}
+                </div>
               </div>
             )}
           </div>
@@ -352,10 +484,17 @@ const ConsumersPage: NextPage = () => {
                   <div key={test.id} className="border border-base-300 rounded-lg p-4">
                     <div className="flex justify-between items-center mb-2">
                       <div className="font-semibold text-lg">{test.name}</div>
-                      <span className="badge badge-warning">Pending Approval</span>
+                      <span className="badge badge-warning flex items-center gap-1">
+                        <ClockIcon className="h-4 w-4" />
+                        Pending
+                      </span>
                     </div>
                     <div className="mb-2 text-sm text-base-content/70">
                       Genomes: {test.genomes.map(g => g.title).join(", ")}
+                    </div>
+                    <div className="flex gap-4 mb-2 text-xs">
+                      <span className="text-success">Approved: {test.approvals}</span>
+                      <span className="text-error">Rejected: {test.rejections}</span>
                     </div>
                     <div className="text-xs text-base-content/60 mb-1">Requested At: {test.requestedAt}</div>
                     <div className="text-xs text-base-content/60">Owner: {test.owner}</div>
