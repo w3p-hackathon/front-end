@@ -6,10 +6,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { hardhat } from "viem/chains";
 import {
-  ArrowDownOnSquareStackIcon,
   Bars3Icon,
   CurrencyDollarIcon,
   HomeIcon,
+  PresentationChartLineIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
@@ -33,9 +33,9 @@ export const menuLinks: HeaderMenuLink[] = [
     icon: <UserGroupIcon className="h-4 w-4" />,
   },
   {
-    label: "Consumers",
-    href: "/consumers",
-    icon: <ArrowDownOnSquareStackIcon className="h-4 w-4" />,
+    label: "Researchers",
+    href: "/researchers",
+    icon: <PresentationChartLineIcon className="h-4 w-4" />,
   },
 
   {
