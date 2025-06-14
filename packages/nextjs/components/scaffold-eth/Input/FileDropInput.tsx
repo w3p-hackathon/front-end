@@ -1,5 +1,9 @@
 import React, { useRef, useState } from "react";
+import { UltraHonkBackend } from "@aztec/bb.js";
+import { Noir } from "@noir-lang/noir_js";
+import { parseGeneticData } from "~~/utils/file-process";
 import { notification } from "~~/utils/scaffold-eth/notification";
+import zkjson from "~~/zk/zk.json";
 
 interface FileDropInputProps {
   onProcess?: (file: File) => Promise<void>;
@@ -40,14 +44,23 @@ export const FileDropInput: React.FC<FileDropInputProps> = ({ onProcess }) => {
     if (file) {
       setIsProcessing(true);
       const toastId = notification.loading("Encryting your data...");
+
       try {
+        const noir = new Noir(zkjson as any);
+        const backend = new UltraHonkBackend(zkjson.bytecode);
+        const fileContent = await file.text();
+        const markers = await parseGeneticData(fileContent);
+        const { witness } = await noir.execute(markers);
+        const proof = await backend.generateProof(witness);
+        console.log(proof);
         // Mock processing function
         await new Promise(res => setTimeout(res, 1000));
         if (onProcess) await onProcess(file);
         notification.remove(toastId);
         notification.success("Data encrypted successfully!");
         setFile(null);
-      } catch {
+      } catch (error) {
+        console.error(error);
         notification.remove(toastId);
         notification.error("Failed to encrypt data.");
       } finally {
