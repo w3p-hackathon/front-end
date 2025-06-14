@@ -15,7 +15,6 @@ export const Footer = () => {
       <div className="fixed flex justify-end items-center w-full z-10 p-4 bottom-0 left-0 pointer-events-none">
         <SwitchTheme className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
       </div>
-      <div className="w-full">Footer</div>
     </div>
   );
 };
