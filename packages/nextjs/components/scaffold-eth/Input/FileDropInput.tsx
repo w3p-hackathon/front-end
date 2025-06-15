@@ -53,6 +53,7 @@ export const FileDropInput: React.FC<FileDropInputProps> = ({ onProcess }) => {
         const { witness } = await noir.execute(markers);
         const proof = await backend.generateProof(witness);
         console.log(proof);
+
         // Mock processing function
         // await new Promise(res => setTimeout(res, 1000));
         if (onProcess) await onProcess(file);

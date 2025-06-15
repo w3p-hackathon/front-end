@@ -109,10 +109,11 @@ const ConsumersPage: NextPage = () => {
   const [subsetValue, setSubsetValue] = useState<string>("");
   const [chromosomeValue, setChromosomeValue] = useState<string>("");
   const [researchType, setResearchType] = useState<string>("");
+  const [researchTechnology, setResearchTechnology] = useState<string>("");
   const [snpInput, setSnpInput] = useState<string>("");
   const [snps, setSnps] = useState<string[]>([]);
   const [offerAmount, setOfferAmount] = useState<string>("");
-
+  const [researcherName, setResearcherName] = useState<string>("");
   const handleGenomeSelect = (id: string) => {
     setSelectedGenomes(prev => (prev.includes(id) ? prev.filter(gid => gid !== id) : [...prev, id]));
   };
@@ -192,6 +193,15 @@ const ConsumersPage: NextPage = () => {
             <h2 className="text-xl font-semibold mb-4">Create New Test</h2>
             <form onSubmit={handleCreateTest}>
               <div className="mb-4">
+                <label className="block mb-2 font-medium">Researcher Name:</label>
+                <input
+                  className="input input-bordered w-full"
+                  value={researcherName}
+                  onChange={e => setResearcherName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-4">
                 <label className="block mb-2 font-medium">Test Name:</label>
                 <input
                   className="input input-bordered w-full"
@@ -208,6 +218,24 @@ const ConsumersPage: NextPage = () => {
                   onChange={e => setTestDescription(e.target.value)}
                   required
                 />
+              </div>
+              <div className="mb-4">
+                <label className="block mb-2 font-medium">Technology:</label>
+                <select
+                  className="select select-bordered w-full"
+                  value={researchTechnology}
+                  onChange={e => setResearchTechnology(e.target.value)}
+                  required
+                >
+                  <option value="">Select Technology</option>
+                  <option value="Client ZK Proofs">Client ZK Proofs</option>
+                  <option value="Interactive FHE computation with Concrete ML">
+                    Interactive FHE computation with Concrete ML
+                  </option>
+                  <option value="MPC FHE with Enclave">MPC FHE with Enclave</option>
+                  <option value="On-chain Analysis Fhenix">On-chain Analysis Fhenix</option>
+                  <option value="Nillion Trust">Nillion TEE ML</option>
+                </select>
               </div>
               <div className="mb-4">
                 <label className="block mb-2 font-medium">Research Type:</label>
