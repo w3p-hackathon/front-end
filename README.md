@@ -2,6 +2,8 @@
 
 Decentralized purpose defined marketplace for Encrypted Genetic Data
 
+![Hero Image](hero.png)
+
 ## Problem
 
 Centralized genetic data platforms often misuse or sell user data without consent, compromising privacy and failing to fairly compensate data owners.
