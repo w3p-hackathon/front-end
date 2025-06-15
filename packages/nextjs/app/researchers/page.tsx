@@ -340,7 +340,7 @@ const ConsumersPage: NextPage = () => {
                   type="number"
                   min="0"
                   step="any"
-                  placeholder="ETH"
+                  placeholder="SNP"
                   value={offerAmount}
                   onChange={e => setOfferAmount(e.target.value)}
                   required

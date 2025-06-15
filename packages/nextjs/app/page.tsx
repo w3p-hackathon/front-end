@@ -10,6 +10,7 @@ import {
   HiOutlineHand,
   HiOutlineShieldCheck,
 } from "react-icons/hi";
+import ttandme from "../public/23andme.png"
 
 const sectionCard = "rounded-xl border border-gray-700 bg-[#181a2b] shadow-md p-8 mb-8";
 const sectionTitle = "text-2xl font-semibold mb-4 text-gray-100 flex items-center gap-3";
@@ -26,43 +27,14 @@ const Home: NextPage = () => {
         className="flex flex-col items-center mt-16 mb-8"
       >
         <h1 className="text-5xl font-extrabold mb-2 text-gray-100">SNPools</h1>
-        <h2 className="text-xl font-medium mb-4 text-gray-300">Decentralized Marketplace for Encrypted Genetic Data</h2>
+        <h2 className="text-xl font-medium mb-4 text-gray-300">Decentralized purpose defined marketplace for Encrypted Genetic Data</h2>
         <p className="max-w-2xl text-center text-lg text-gray-300">
           SNPools is a secure, privacy-first platform for sharing and monetizing encrypted genetic data, enabling
           permissioned computation and research while preserving user privacy.
         </p>
-        <motion.img
-          src="https://pbs.twimg.com/media/DLJyglKW4AA4i1B?format=jpg&name=900x900"
-          alt="DNA Illustration"
-          className="rounded-xl mt-8 shadow-lg border-2 border-gray-700 w-56 h-56 object-cover"
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        />
+<img src="https://i.imgflip.com/9xgjcq.jpg" title="made at imgflip.com"/><div></div>
       </motion.header>
 
-      <section className={`w-full max-w-3xl ${sectionCard}`}>
-        <motion.h3
-          className={sectionTitle}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.1 }}
-        >
-          <span className="text-indigo-300">
-            <HiOutlineBeaker size={32} />
-          </span>{" "}
-          Description (TL;DR)
-        </motion.h3>
-        <motion.p
-          className={sectionText}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          SNPools is a decentralized, privacy-focused marketplace for encrypted genetic data, enabling secure,
-          permissioned computation and data monetization using advanced cryptography.
-        </motion.p>
-      </section>
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
         <motion.h3
@@ -85,6 +57,8 @@ const Home: NextPage = () => {
           Centralized genetic data platforms often misuse or sell user data without consent, compromising privacy and
           failing to fairly compensate data owners.
         </motion.p>
+
+      <img src="23andme.png"/>
       </section>
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
@@ -159,6 +133,7 @@ const Home: NextPage = () => {
           All genetic data is fully encrypted and never leaves user control. Computations are performed on encrypted
           data, ensuring privacy and self-sovereignty. No third party can access raw genetic information.
         </motion.p>
+          <img src="gskiller.png"/>
       </section>
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
@@ -183,6 +158,7 @@ const Home: NextPage = () => {
           <li>Researchers training models on encrypted datasets without risking data leaks.</li>
           <li>Privacy-preserving health analytics and ancestry services.</li>
         </motion.ul>
+        <img src="frenchmarkers.png"/>
       </section>
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
@@ -226,10 +202,13 @@ const Home: NextPage = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          Future plans include exploring shared genetic ownership, family-based permissions, and cross-chain
-          interoperability. We aim to expand privacy tools and support new data types and computation models.
+          Future plans include exploring shared genetic ownership, family-based permissions, cross-chain
+          interoperability and genetic prediction market. 
+          We aim to expand privacy tools and support new data types and computation models.
         </motion.p>
       </section>
+<img src="https://i.imgflip.com/9xgjna.jpg" title="made at imgflip.com"/><div></div>
+
 
       <footer className="mt-12 mb-4 text-center text-xs text-gray-500">
         &copy; {new Date().getFullYear()} SNPools. All rights reserved.
