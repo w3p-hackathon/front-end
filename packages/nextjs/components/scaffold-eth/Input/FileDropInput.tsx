@@ -43,7 +43,7 @@ export const FileDropInput: React.FC<FileDropInputProps> = ({ onProcess }) => {
   const handleButtonClick = async () => {
     if (file) {
       setIsProcessing(true);
-      const toastId = notification.loading("Encryting your data...");
+      const toastId = notification.loading("Generating verifiable proof...");
 
       try {
         const noir = new Noir(zkjson as any);
@@ -54,7 +54,7 @@ export const FileDropInput: React.FC<FileDropInputProps> = ({ onProcess }) => {
         const proof = await backend.generateProof(witness);
         console.log(proof);
         // Mock processing function
-        await new Promise(res => setTimeout(res, 1000));
+        // await new Promise(res => setTimeout(res, 1000));
         if (onProcess) await onProcess(file);
         notification.remove(toastId);
         notification.success("Data encrypted successfully!");

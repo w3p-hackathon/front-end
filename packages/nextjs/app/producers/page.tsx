@@ -54,7 +54,7 @@ const ProducersPage: NextPage = () => {
       <div className="bg-base-100 rounded-b-xl shadow-md p-6 min-h-[300px]">
         {activeTab === TAB_UPLOAD && (
           <div className="flex flex-col items-center justify-center">
-            <h2 className="text-xl font-semibold mb-6">Encrypt Genome Data</h2>
+            <h2 className="text-xl font-semibold mb-6">Share Verifiable Metrics</h2>
             <FileDropInput />
           </div>
         )}

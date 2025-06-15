@@ -9,8 +9,8 @@
  * @param {Array} markers - Array of genetic markers
  * @returns {Object} Object with call_rate, heterozygosity_rate, ti_tv_ratio
  */
-import { ethers } from "ethers";
 import { Fr } from "@aztec/bb.js";
+import { ethers } from "ethers";
 
 function calculateQualityMetrics(markers: any) {
   if (!markers || markers.length === 0) {
@@ -283,7 +283,7 @@ function parse23andMeData(fileContent: any, maxMarkers = 1000, verbose = false) 
     challenge_hash: "0x00",
     min_call_rate: "0x3c6",
     min_heterozygosity_rate: "0x20",
-    ti_tv_ratio: "0x133c"
+    ti_tv_ratio: "0x133c",
   };
 }
 
