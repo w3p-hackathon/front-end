@@ -1,11 +1,9 @@
 "use client";
 
-import ttandme from "../public/23andme.png";
 import { motion } from "motion/react";
 import type { NextPage } from "next";
 import {
   HiOutlineArrowNarrowUp,
-  HiOutlineBeaker,
   HiOutlineBriefcase,
   HiOutlineCube,
   HiOutlineHand,
@@ -186,9 +184,6 @@ const Home: NextPage = () => {
         <a href="https://imgflip.com/i/9xgo1o">
           <img src="https://i.imgflip.com/9xgo1o.jpg" title="made at imgflip.com" />
         </a>
-        <div>
-          <a href="https://imgflip.com/memegenerator">from Imgflip Meme Generator</a>
-        </div>
       </section>
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
