@@ -18,7 +18,7 @@ const sectionList = "list-disc list-inside text-gray-200";
 
 const Home: NextPage = () => {
   return (
-    <main className="min-h-screen w-full flex flex-col items-center bg-[#131625] text-gray-100">
+    <main className="min-h-screen w-full flex flex-col items-center text-gray-100">
       <motion.header
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}

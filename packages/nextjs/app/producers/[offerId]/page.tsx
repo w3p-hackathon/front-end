@@ -11,6 +11,14 @@ const mockOffers = [
     testName: "Cancer Marker Analysis",
     offerAmount: "0.5",
     status: "Pending",
+    technology: "qPCR",
+    pseudocode: `X = np.array(df_binary['genome_code']).reshape(-1, 1)
+y = np.array(df_binary['chromosome']).reshape(-1, 1)
+df_binary.dropna(inplace = True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25)
+regr = LinearRegression()
+regr.fit(X_train, y_train)
+return regr.score(X_test, y_test)`,
   },
   {
     id: "o2",
@@ -18,6 +26,14 @@ const mockOffers = [
     testName: "Gene Expression Study",
     offerAmount: "1.2",
     status: "Pending",
+    technology: "RNA-Seq",
+    pseudocode: `X = np.array(df_binary['genome_code']).reshape(-1, 1)
+y = np.array(df_binary['chromosome']).reshape(-1, 1)
+df_binary.dropna(inplace = True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25)
+regr = LinearRegression()
+regr.fit(X_train, y_train)
+return regr.score(X_test, y_test)`,
   },
 ];
 
@@ -46,30 +62,37 @@ const OfferDetailsPage = () => {
   };
 
   return (
-    <div className="container mx-auto py-10 max-w-xl">
-      <button className="btn btn-ghost mb-4" onClick={() => router.push("/producers")}>
+    <div className="container mx-auto py-10 max-w-3xl">
+      <button className="btn btn-ghost mb-6" onClick={() => router.push("/producers")}>
         {"<- Back"}
       </button>
-      <div className="card bg-base-100 shadow-lg p-6">
-        <h1 className="text-2xl font-bold mb-4">Offer Details</h1>
-        <div className="mb-2">
-          <span className="font-semibold">Test Name:</span> {offer.testName}
-        </div>
-        <div className="mb-2">
-          <span className="font-semibold">Researcher:</span> {offer.researcher}
-        </div>
-        <div className="mb-2">
-          <span className="font-semibold">Offered Amount:</span> {offer.offerAmount} SNP
-        </div>
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-bold mb-6">{offer.testName}</h1>
         <div className="mb-4">
           <span
-            className={`badge ${
+            className={`badge text-base ${
               status === "Pending" ? "badge-warning" : status === "Approved" ? "badge-success" : "badge-error"
             }`}
           >
             {status}
           </span>
         </div>
+      </div>
+      <div className="mb-4 text-lg">
+        <div className="mb-2">
+          <span className="font-semibold">Researcher:</span> {offer.researcher}
+        </div>
+        <div className="mb-2">
+          <span className="font-semibold">Offered Amount:</span> {offer.offerAmount} SNP
+        </div>
+        <div className="mb-2">
+          <span className="font-semibold">Technology:</span> {offer.technology}
+        </div>
+        <div className="mb-2">
+          <span className="font-semibold">Pseudocode:</span>
+          <pre className="bg-pink-500/45 rounded p-3 mt-1 whitespace-pre-wrap text-sm">{offer.pseudocode}</pre>
+        </div>
+
         {status === "Pending" && (
           <div className="flex gap-4 mb-4">
             <button className="btn btn-success" onClick={() => handleAction("Approved")}>
