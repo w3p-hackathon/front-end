@@ -14,7 +14,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const externalContracts = {
   11155111: {
     RewardDistributor: {
-      address: "0xce360164B82500d8Ae76E99a1d69D363b4d520C9",
+      address: "0xd3d2d2642fc82b7fdbc361a5c02679f997902ca9",
       abi: [
         { type: "constructor", inputs: [], stateMutability: "nonpayable" },
         {
