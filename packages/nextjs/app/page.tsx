@@ -182,6 +182,7 @@ const Home: NextPage = () => {
           Users earn rewards or payments when their encrypted data is used for computation. The platform takes a small
           fee per transaction, ensuring sustainability while maximizing user profit and privacy.
         </motion.p>
+<a href="https://imgflip.com/i/9xgo1o"><img src="https://i.imgflip.com/9xgo1o.jpg" title="made at imgflip.com"/></a><div><a href="https://imgflip.com/memegenerator">from Imgflip Meme Generator</a></div>
       </section>
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
