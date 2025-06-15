@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { NextPage } from "next";
 import { ArrowPathIcon, ClockIcon, DocumentCheckIcon } from "@heroicons/react/24/outline";
 
@@ -111,7 +112,6 @@ const ConsumersPage: NextPage = () => {
   const [snpInput, setSnpInput] = useState<string>("");
   const [snps, setSnps] = useState<string[]>([]);
   const [offerAmount, setOfferAmount] = useState<string>("");
-  const [modalTest, setModalTest] = useState<any>(null);
 
   const handleGenomeSelect = (id: string) => {
     setSelectedGenomes(prev => (prev.includes(id) ? prev.filter(gid => gid !== id) : [...prev, id]));
@@ -399,10 +399,10 @@ const ConsumersPage: NextPage = () => {
             ) : (
               <div className="space-y-6">
                 {ongoingTests.map(test => (
-                  <div
+                  <Link
                     key={test.id}
-                    className="border border-base-300 rounded-lg p-4 cursor-pointer hover:shadow-lg transition-shadow"
-                    onClick={() => setModalTest(test)}
+                    href={`/researchers/${test.id}`}
+                    className="block border border-base-300 rounded-lg p-4 cursor-pointer hover:shadow-lg transition-shadow"
                   >
                     <div className="flex justify-between items-center mb-2">
                       <div className="font-semibold text-lg">{test.name}</div>
@@ -436,39 +436,8 @@ const ConsumersPage: NextPage = () => {
                     <div className="text-xs text-base-content/60">
                       {test.status === "Completed" ? "Completed" : `Progress: ${test.progress}%`}
                     </div>
-                  </div>
+                  </Link>
                 ))}
-              </div>
-            )}
-            {/* Modal for research result */}
-            {modalTest && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-                <div className="bg-base-100 rounded-xl shadow-lg p-8 w-full max-w-md relative">
-                  <button
-                    className="absolute top-2 right-2 btn btn-sm btn-circle btn-ghost"
-                    onClick={() => setModalTest(null)}
-                  >
-                    ✕
-                  </button>
-                  <h3 className="text-xl font-bold mb-4">Research Result</h3>
-                  <div className="mb-2 font-semibold">{modalTest.name}</div>
-                  <div className="mb-2 text-sm text-base-content/70">
-                    Genomes: {modalTest.genomes.map((g: any) => g.title).join(", ")}
-                  </div>
-                  {modalTest.status === "Completed" ? (
-                    <div>
-                      <div className="mb-2 text-success font-semibold">Test completed!</div>
-                      <div className="mb-2">Here are the results:</div>
-                      <ul className="list-disc list-inside text-base-content/80">
-                        <li>Result 1: 0.87</li>
-                        <li>Result 2: 0.42</li>
-                        <li>Result 3: 0.99</li>
-                      </ul>
-                    </div>
-                  ) : (
-                    <div className="text-info">Test is still running... Please check back later.</div>
-                  )}
-                </div>
               </div>
             )}
           </div>
