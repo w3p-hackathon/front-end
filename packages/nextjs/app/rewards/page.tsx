@@ -3,24 +3,40 @@ import { NextPage } from "next";
 const rewards = [
   {
     id: 1,
-    name: "Early Adopter Badge",
-    description: "Awarded to the first 100 users.",
+    researcher: "John Doe",
+    researchTechnology: "Client ZK Proofs",
+    description: "",
     amount: "0.05 SNP",
     status: "Available",
   },
-  { id: 2, name: "Referral Bonus", description: "Invite 5 friends to claim.", amount: "0.10 SNP", status: "Available" },
-  { id: 3, name: "Beta Tester", description: "Participate in beta testing.", amount: "0.02 SNP", status: "Claimed" },
+  {
+    id: 2,
+    researcher: "Jane Doe",
+    researchTechnology: "Interactive FHE computation with Concrete ML",
+    description: "",
+    amount: "0.10 SNP",
+    status: "Available",
+  },
+  {
+    id: 3,
+    researcher: "Mike Doe",
+    researchTechnology: "Nillion TEE ML",
+    description: "",
+    amount: "0.02 SNP",
+    status: "Claimed",
+  },
 ];
 
 const RewardsPage: NextPage = () => {
   return (
-    <div className="max-w-3xl mx-auto py-10 px-4">
+    <div className="container mx-auto py-10 px-4">
       <h1 className="text-2xl font-bold mb-6">Available Rewards</h1>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-base-200 rounded-lg shadow">
+        <table className="w-full bg-base-200 rounded-lg shadow">
           <thead>
             <tr>
-              <th className="py-3 px-4 text-left">Reward</th>
+              <th className="py-3 px-4 text-left">Researcher</th>
+              <th className="py-3 px-4 text-left">Research Technology</th>
               <th className="py-3 px-4 text-left">Description</th>
               <th className="py-3 px-4 text-left">Amount</th>
               <th className="py-3 px-4 text-left">Status</th>
@@ -30,7 +46,8 @@ const RewardsPage: NextPage = () => {
           <tbody>
             {rewards.map(reward => (
               <tr key={reward.id} className="border-t border-base-300">
-                <td className="py-3 px-4 font-semibold">{reward.name}</td>
+                <td className="py-3 px-4 font-semibold">{reward.researcher}</td>
+                <td className="py-3 px-4">{reward.researchTechnology}</td>
                 <td className="py-3 px-4">{reward.description}</td>
                 <td className="py-3 px-4">{reward.amount}</td>
                 <td className="py-3 px-4">
