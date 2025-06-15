@@ -1,5 +1,6 @@
 "use client";
 
+import ttandme from "../public/23andme.png";
 import { motion } from "motion/react";
 import type { NextPage } from "next";
 import {
@@ -10,7 +11,6 @@ import {
   HiOutlineHand,
   HiOutlineShieldCheck,
 } from "react-icons/hi";
-import ttandme from "../public/23andme.png"
 
 const sectionCard = "rounded-xl border border-gray-700 bg-[#181a2b] shadow-md p-8 mb-8";
 const sectionTitle = "text-2xl font-semibold mb-4 text-gray-100 flex items-center gap-3";
@@ -27,14 +27,16 @@ const Home: NextPage = () => {
         className="flex flex-col items-center mt-16 mb-8"
       >
         <h1 className="text-5xl font-extrabold mb-2 text-gray-100">SNPools</h1>
-        <h2 className="text-xl font-medium mb-4 text-gray-300">Decentralized purpose defined marketplace for Encrypted Genetic Data</h2>
+        <h2 className="text-xl font-medium mb-4 text-gray-300">
+          Decentralized purpose defined marketplace for Encrypted Genetic Data
+        </h2>
         <p className="max-w-2xl text-center text-lg text-gray-300">
           SNPools is a secure, privacy-first platform for sharing and monetizing encrypted genetic data, enabling
           permissioned computation and research while preserving user privacy.
         </p>
-<img src="https://i.imgflip.com/9xgjcq.jpg" title="made at imgflip.com"/><div></div>
+        <img src="https://i.imgflip.com/9xgjcq.jpg" title="made at imgflip.com" />
+        <div></div>
       </motion.header>
-
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
         <motion.h3
@@ -58,7 +60,7 @@ const Home: NextPage = () => {
           failing to fairly compensate data owners.
         </motion.p>
 
-      <img src="23andme.png"/>
+        <img src="23andme.png" />
       </section>
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
@@ -103,12 +105,11 @@ const Home: NextPage = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <li>Scaffold-ETH 2 (Next.js, RainbowKit, Wagmi, Typescript)</li>
-          <li>Enclave</li>
-          <li>Nillion</li>
           <li>Noir</li>
-          <li>Fully Homomorphic Encryption (FHE)</li>
-          <li>Zero-Knowledge Proofs (ZK)</li>
+          <li>Concrete ML from ZAMA</li>
+          <li>Solidity / EVM</li>
+          <li>Python</li>
+          <li>React, Typescript</li>
         </motion.ul>
       </section>
 
@@ -133,7 +134,7 @@ const Home: NextPage = () => {
           All genetic data is fully encrypted and never leaves user control. Computations are performed on encrypted
           data, ensuring privacy and self-sovereignty. No third party can access raw genetic information.
         </motion.p>
-          <img src="gskiller.png"/>
+        <img src="gskiller.png" />
       </section>
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
@@ -158,7 +159,7 @@ const Home: NextPage = () => {
           <li>Researchers training models on encrypted datasets without risking data leaks.</li>
           <li>Privacy-preserving health analytics and ancestry services.</li>
         </motion.ul>
-        <img src="frenchmarkers.png"/>
+        <img src="frenchmarkers.png" />
       </section>
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
@@ -182,7 +183,12 @@ const Home: NextPage = () => {
           Users earn rewards or payments when their encrypted data is used for computation. The platform takes a small
           fee per transaction, ensuring sustainability while maximizing user profit and privacy.
         </motion.p>
-<a href="https://imgflip.com/i/9xgo1o"><img src="https://i.imgflip.com/9xgo1o.jpg" title="made at imgflip.com"/></a><div><a href="https://imgflip.com/memegenerator">from Imgflip Meme Generator</a></div>
+        <a href="https://imgflip.com/i/9xgo1o">
+          <img src="https://i.imgflip.com/9xgo1o.jpg" title="made at imgflip.com" />
+        </a>
+        <div>
+          <a href="https://imgflip.com/memegenerator">from Imgflip Meme Generator</a>
+        </div>
       </section>
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
@@ -204,12 +210,12 @@ const Home: NextPage = () => {
           transition={{ delay: 0.2 }}
         >
           Future plans include exploring shared genetic ownership, family-based permissions, cross-chain
-          interoperability and genetic prediction market. 
-          We aim to expand privacy tools and support new data types and computation models.
+          interoperability and genetic prediction market. We aim to expand privacy tools and support new data types and
+          computation models.
         </motion.p>
       </section>
-<img src="https://i.imgflip.com/9xgjna.jpg" title="made at imgflip.com"/><div></div>
-
+      <img src="https://i.imgflip.com/9xgjna.jpg" title="made at imgflip.com" />
+      <div></div>
 
       <footer className="mt-12 mb-4 text-center text-xs text-gray-500">
         &copy; {new Date().getFullYear()} SNPools. All rights reserved.
