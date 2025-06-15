@@ -11,7 +11,7 @@ const mockOffers = [
     testName: "Cancer Marker Analysis",
     offerAmount: "0.5",
     status: "Pending",
-    technology: "qPCR",
+    technology: "Client ZK Proofs",
     pseudocode: `X = np.array(df_binary['genome_code']).reshape(-1, 1)
 y = np.array(df_binary['chromosome']).reshape(-1, 1)
 df_binary.dropna(inplace = True)
@@ -26,7 +26,22 @@ return regr.score(X_test, y_test)`,
     testName: "Gene Expression Study",
     offerAmount: "1.2",
     status: "Pending",
-    technology: "RNA-Seq",
+    technology: "Interactive FHE computation with Concrete ML",
+    pseudocode: `X = np.array(df_binary['genome_code']).reshape(-1, 1)
+y = np.array(df_binary['chromosome']).reshape(-1, 1)
+df_binary.dropna(inplace = True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25)
+regr = LinearRegression()
+regr.fit(X_train, y_train)
+return regr.score(X_test, y_test)`,
+  },
+  {
+    id: "o3",
+    researcher: "Mike Doe",
+    testName: "Genome Analysis",
+    offerAmount: "0.8",
+    status: "Pending",
+    technology: "Nillion TEE ML",
     pseudocode: `X = np.array(df_binary['genome_code']).reshape(-1, 1)
 y = np.array(df_binary['chromosome']).reshape(-1, 1)
 df_binary.dropna(inplace = True)

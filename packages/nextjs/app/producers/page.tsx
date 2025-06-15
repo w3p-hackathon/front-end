@@ -11,6 +11,7 @@ const mockOffers = [
     testName: "Cancer Marker Analysis",
     offerAmount: "0.5",
     status: "Pending",
+    technology: "Client ZK Proofs",
   },
   {
     id: "o2",
@@ -18,6 +19,15 @@ const mockOffers = [
     testName: "Gene Expression Study",
     offerAmount: "1.2",
     status: "Pending",
+    technology: "Interactive FHE computation with Concrete ML",
+  },
+  {
+    id: "o3",
+    researcher: "Mike Doe",
+    testName: "Genome Analysis",
+    offerAmount: "0.8",
+    status: "Pending",
+    technology: "Nillion TEE ML",
   },
 ];
 
@@ -68,6 +78,9 @@ const ProducersPage: NextPage = () => {
                     <h3 className="card-title text-lg font-bold mb-2">{offer.testName}</h3>
                     <p className="mb-1">
                       <span className="font-semibold">Researcher:</span> {offer.researcher}
+                    </p>
+                    <p className="mb-1">
+                      <span className="font-semibold">Technology:</span> {offer.technology}
                     </p>
                     <p className="mb-1">
                       <span className="font-semibold">Offered Amount:</span> {offer.offerAmount} SNP

@@ -170,7 +170,7 @@ const TestResultPage = ({ params }: { params: { slug: string } }) => {
       <div className="bg-base-100 border border-base-300 rounded-xl shadow-md p-8">
         <h1 className="text-2xl font-bold mb-2">{result.name}</h1>
         <div className="mb-4 text-base-content/80">{result.summary}</div>
-        <div className="mb-4 text-xs text-base-content/60">Owner: {result.owner}</div>
+        {/* <div className="mb-4 text-xs text-base-content/60">Owner: {result.owner}</div> */}
         <h2 className="text-lg font-semibold mb-2 mt-6">Cluster Plot</h2>
         <div className="flex justify-center mb-6 h-64 bg-base-200 rounded-lg p-4">
           <Scatter data={clusterData} options={clusterOptions} />
