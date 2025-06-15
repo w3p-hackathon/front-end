@@ -32,8 +32,8 @@ const Home: NextPage = () => {
           SNPools is a secure, privacy-first platform for sharing and monetizing encrypted genetic data, enabling
           permissioned computation and research while preserving user privacy.
         </p>
-        <img src="https://i.imgflip.com/9xgjcq.jpg" title="made at imgflip.com" />
-        <div></div>
+
+      <img src="https://i.imgflip.com/9xgxwq.jpg" title="aztecosaka" />
       </motion.header>
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
@@ -181,9 +181,6 @@ const Home: NextPage = () => {
           Users earn rewards or payments when their encrypted data is used for computation. The platform takes a small
           fee per transaction, ensuring sustainability while maximizing user profit and privacy.
         </motion.p>
-        <a href="https://imgflip.com/i/9xgo1o">
-          <img src="https://i.imgflip.com/9xgo1o.jpg" title="made at imgflip.com" />
-        </a>
       </section>
 
       <section className={`w-full max-w-3xl ${sectionCard}`}>
@@ -204,13 +201,13 @@ const Home: NextPage = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          Future plans include exploring shared genetic ownership, family-based permissions, cross-chain
-          interoperability and genetic prediction market. We aim to expand privacy tools and support new data types and
+          Future plans include exploring shared genetic ownership, family-based permissions,
+           and genetic prediction market. We aim to expand privacy tools and support new data types and
           computation models.
         </motion.p>
       </section>
       <img src="https://i.imgflip.com/9xgjna.jpg" title="made at imgflip.com" />
-      <div></div>
+      <img src="https://i.imgflip.com/9xgjcq.jpg" title="made at imgflip.com" />
 
       <footer className="mt-12 mb-4 text-center text-xs text-gray-500">
         &copy; {new Date().getFullYear()} SNPools. All rights reserved.
