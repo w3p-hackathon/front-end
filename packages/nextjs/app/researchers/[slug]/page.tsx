@@ -17,31 +17,70 @@ const testResults = [
     resultValues: [0.87, 0.42, 0.99],
     owner: "0x9876...4321",
     clusterData: [
-      { x: 1.2, y: 2.3, label: "Sample 1" },
-      { x: 2.1, y: 1.8, label: "Sample 2" },
-      { x: 2.8, y: 3.1, label: "Sample 3" },
-      { x: 3.5, y: 2.7, label: "Sample 4" },
-      { x: 1.7, y: 2.9, label: "Sample 5" },
-      { x: 2.4, y: 1.6, label: "Sample 6" },
-      { x: 3.1, y: 3.0, label: "Sample 7" },
-      { x: 2.9, y: 2.2, label: "Sample 8" },
-      { x: 1.5, y: 1.7, label: "Sample 9" },
-      { x: 2.0, y: 3.3, label: "Sample 10" },
-      { x: 3.3, y: 2.5, label: "Sample 11" },
-      { x: 2.6, y: 1.9, label: "Sample 12" },
-      { x: 1.8, y: 2.4, label: "Sample 13" },
-      { x: 2.2, y: 3.2, label: "Sample 14" },
-      { x: 3.0, y: 2.0, label: "Sample 15" },
-      { x: 1.9, y: 1.5, label: "Sample 16" },
-      { x: 2.7, y: 2.6, label: "Sample 17" },
-      { x: 3.4, y: 3.1, label: "Sample 18" },
-      { x: 1.6, y: 2.1, label: "Sample 19" },
-      { x: 2.3, y: 2.8, label: "Sample 20" },
+      // Cluster 1 (red)
+      { x: -4.5, y: 1.2, label: "YDR450W", cluster: 1 },
+      { x: -4.2, y: 0.8, label: "", cluster: 1 },
+      { x: -4.0, y: 1.5, label: "", cluster: 1 },
+      { x: -3.8, y: 0.9, label: "", cluster: 1 },
+      // Cluster 2 (yellow)
+      { x: -1.5, y: -2.0, label: "YAL067C", cluster: 2 },
+      { x: -1.2, y: -2.5, label: "", cluster: 2 },
+      { x: -1.0, y: -3.0, label: "", cluster: 2 },
+      { x: -1.8, y: -2.2, label: "", cluster: 2 },
+      // Cluster 3 (green)
+      { x: 0.5, y: 0.5, label: "YGL059W", cluster: 3 },
+      { x: 0.8, y: 0.8, label: "", cluster: 3 },
+      { x: 1.0, y: 0.2, label: "", cluster: 3 },
+      { x: 0.7, y: 0.6, label: "", cluster: 3 },
+      // Cluster 4 (cyan)
+      { x: 2.0, y: 1.0, label: "YOLO30W", cluster: 4 },
+      { x: 2.2, y: 1.2, label: "", cluster: 4 },
+      { x: 2.5, y: 0.8, label: "", cluster: 4 },
+      { x: 2.3, y: 1.1, label: "", cluster: 4 },
+      // Cluster 5 (blue)
+      { x: 3.0, y: 0.5, label: "", cluster: 5 },
+      { x: 3.2, y: 0.7, label: "", cluster: 5 },
+      { x: 3.5, y: 0.3, label: "", cluster: 5 },
+      { x: 3.3, y: 0.6, label: "", cluster: 5 },
+      // Cluster 6 (magenta)
+      { x: 4.0, y: 1.5, label: "YMR141C", cluster: 6 },
+      { x: 4.2, y: 1.7, label: "", cluster: 6 },
+      { x: 4.5, y: 1.3, label: "", cluster: 6 },
+      { x: 4.3, y: 1.6, label: "", cluster: 6 },
     ],
     ancestors: [
-      { lat: 51.5074, lng: -0.1278, label: "London" },
+      { lat: 42.8746, lng: 74.5698, label: "Bishkek" },
+      { lat: 43.222, lng: 76.8512, label: "Almaty" },
+      { lat: 39.6542, lng: 66.9597, label: "Samarkand" },
+      { lat: 38.5734, lng: 68.7801, label: "Dushanbe" },
+      { lat: 37.9402, lng: 58.3794, label: "Ashgabat" },
+
+      { lat: 47.8864, lng: 106.9057, label: "Ulaanbaatar" },
+
+      { lat: 39.9208, lng: 32.8541, label: "Ankara" },
+      { lat: 41.0082, lng: 28.9784, label: "Istanbul" },
+      { lat: 38.4237, lng: 27.1428, label: "Izmir" },
+
+      { lat: 47.0105, lng: 28.8638, label: "Chișinău" },
+      { lat: 44.4268, lng: 26.1025, label: "Bucharest" },
+      { lat: 42.6977, lng: 23.3219, label: "Sofia" },
+      { lat: 45.815, lng: 15.9819, label: "Zagreb" },
+      { lat: 47.4979, lng: 19.0402, label: "Budapest" },
+
       { lat: 48.8566, lng: 2.3522, label: "Paris" },
-      { lat: 40.7128, lng: -74.006, label: "New York" },
+      { lat: 52.52, lng: 13.405, label: "Berlin" },
+      { lat: 50.0755, lng: 14.4378, label: "Prague" },
+      { lat: 51.5072, lng: -0.1276, label: "London" },
+      { lat: 52.3676, lng: 4.9041, label: "Amsterdam" },
+      { lat: 41.9028, lng: 12.4964, label: "Rome" },
+
+      { lat: 6.5244, lng: 3.3792, label: "Lagos" },
+      { lat: 6.4541, lng: 3.3841, label: "Abuja" },
+      { lat: 4.8901, lng: 7.023, label: "Port Harcourt" },
+      { lat: 10.4516, lng: 7.516, label: "Kano" },
+      { lat: 12.8797, lng: 8.674, label: "Jos" },
+      { lat: 11.0168, lng: 7.4962, label: "Zaria" },
+      { lat: 10.3039, lng: 12.1162, label: "Yola" },
     ],
   },
   // Add more test results as needed
@@ -74,33 +113,34 @@ const TestResultPage = ({ params }: { params: { slug: string } }) => {
     );
   }
 
-  // Cluster plot data for react-chartjs-2
+  // Group clusterData by cluster for chart.js datasets
+  const clusterColors = ["#ef4444", "#facc15", "#22c55e", "#06b6d4", "#3b82f6", "#a21caf"];
+  const clusterLabels = ["1", "2", "3", "4", "5", "6"];
+  const grouped = [1, 2, 3, 4, 5, 6].map(clusterNum => {
+    return {
+      label: clusterLabels[clusterNum - 1],
+      data: result.clusterData.filter(p => p.cluster === clusterNum),
+      backgroundColor: clusterColors[clusterNum - 1],
+      pointRadius: 6,
+      pointHoverRadius: 10,
+    };
+  });
   const clusterData = {
-    datasets: [
-      {
-        label: "Samples",
-        data: result.clusterData,
-        backgroundColor: ["#60a5fa", "#f472b6", "#34d399", "#f59e42"],
-        pointRadius: 8,
-        pointHoverRadius: 12,
-      },
-    ],
+    datasets: grouped,
   };
 
   const clusterOptions = {
     plugins: {
-      legend: { display: false },
+      legend: { display: true, position: "right" as const },
       title: {
-        display: false,
-      },
-      zoom: {
-        enabled: true,
-        mode: "xy",
+        display: true,
+        text: "Principal Component Scatter Plot",
+        font: { size: 16 },
       },
       tooltip: {
         callbacks: {
           label: function (context: any) {
-            const label = result.clusterData[context.dataIndex]?.label;
+            const label = context.raw.label;
             return label
               ? `${label}: (${context.parsed.x}, ${context.parsed.y})`
               : `(${context.parsed.x}, ${context.parsed.y})`;
@@ -110,12 +150,12 @@ const TestResultPage = ({ params }: { params: { slug: string } }) => {
     },
     scales: {
       x: {
-        title: { display: true, text: "PC1" },
-        grid: { color: "#e5e7eb" },
+        title: { display: true, text: "First Principal Component" },
+        grid: { display: false },
       },
       y: {
-        title: { display: true, text: "PC2" },
-        grid: { color: "#e5e7eb" },
+        title: { display: true, text: "Second Principal Component" },
+        grid: { display: false },
       },
     },
     responsive: true,
