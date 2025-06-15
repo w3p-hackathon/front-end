@@ -10,6 +10,7 @@
  * @returns {Object} Object with call_rate, heterozygosity_rate, ti_tv_ratio
  */
 import { ethers } from "ethers";
+import { Fr } from "@aztec/bb.js";
 
 function calculateQualityMetrics(markers: any) {
   if (!markers || markers.length === 0) {
@@ -277,16 +278,12 @@ function parse23andMeData(fileContent: any, maxMarkers = 1000, verbose = false) 
   const challengeHash = generateChallengeHash(markers);
 
   return {
-    markers: markers,
-    quality_metrics: qualityMetrics,
-    challenge_hash: challengeHash,
-    total_processed: processedCount,
-    total_skipped: skippedCount,
-    encoding_info: {
-      alleles: "A=1, T=2, G=3, C=4, Missing=0",
-      chromosomes: "1-22=1-22, X=23, Y=24, MT=25",
-      hash_function: "Keccak256",
-    },
+    dna: markers,
+    // quality_metrics: qualityMetrics,
+    challenge_hash: "0x00",
+    min_call_rate: "0x3c6",
+    min_heterozygosity_rate: "0x20",
+    ti_tv_ratio: "0x133c"
   };
 }
 
@@ -297,8 +294,9 @@ function parse23andMeData(fileContent: any, maxMarkers = 1000, verbose = false) 
  * @returns {Array} Array of encoded genetic markers
  */
 async function parseGeneticData(fileContent: any, maxMarkers = 1000) {
-  console.log(fileContent, 1000);
+  // console.log(fileContent, 1000);
   const result = parse23andMeData(fileContent, maxMarkers, false);
+  console.log(result);
   return result;
 }
 
