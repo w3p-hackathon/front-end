@@ -192,6 +192,30 @@ const externalContracts = {
         },
       ],
     },
+    EventEmitter: {
+      address: "0x7919F3A54B28D25E1917c050B1227a72Bf33263B",
+      abi: [
+        {
+          type: "function",
+          name: "emitMetricAvailiable",
+          inputs: [
+            { name: "proof", type: "bytes32", internalType: "bytes32" },
+            { name: "metrics", type: "bytes32[3]", internalType: "bytes32[3]" },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "metricsAvailiable",
+          inputs: [
+            { name: "proof", type: "bytes32", indexed: false, internalType: "bytes32" },
+            { name: "metrics", type: "bytes32[3]", indexed: false, internalType: "bytes32[3]" },
+          ],
+          anonymous: false,
+        },
+      ],
+    },
   },
 } as const;
 

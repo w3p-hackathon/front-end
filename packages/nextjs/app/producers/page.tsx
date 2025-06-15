@@ -7,14 +7,14 @@ import { NextPage } from "next";
 const mockOffers = [
   {
     id: "o1",
-    researcher: "0x1234...abcd",
+    researcher: "John Doe",
     testName: "Cancer Marker Analysis",
     offerAmount: "0.5",
     status: "Pending",
   },
   {
     id: "o2",
-    researcher: "0xabcd...5678",
+    researcher: "Jane Doe",
     testName: "Gene Expression Study",
     offerAmount: "1.2",
     status: "Pending",
@@ -27,11 +27,7 @@ const TABS = [TAB_UPLOAD, TAB_OFFERS];
 
 const ProducersPage: NextPage = () => {
   const [activeTab, setActiveTab] = useState<string>(TAB_UPLOAD);
-  const [offers, setOffers] = useState(mockOffers);
-
-  const handleOfferAction = (id: string, action: "Approved" | "Rejected") => {
-    setOffers(prev => prev.map(offer => (offer.id === id ? { ...offer, status: action } : offer)));
-  };
+  const offers = mockOffers;
 
   return (
     <div className="container mx-auto py-10">
@@ -61,56 +57,35 @@ const ProducersPage: NextPage = () => {
         {activeTab === TAB_OFFERS && (
           <div>
             <h2 className="text-xl font-semibold mb-6">Offers from Researchers</h2>
-            <div className="overflow-x-auto">
-              <table className="table w-full">
-                <thead>
-                  <tr>
-                    <th>Researcher</th>
-                    <th>Test Name</th>
-                    <th>Offer Amount (SNP)</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {offers.map(offer => (
-                    <tr key={offer.id}>
-                      <td>{offer.researcher}</td>
-                      <td>{offer.testName}</td>
-                      <td>{offer.offerAmount}</td>
-                      <td>
-                        <span
-                          className={`badge ${
-                            offer.status === "Pending"
-                              ? "badge-warning"
-                              : offer.status === "Approved"
-                                ? "badge-success"
-                                : "badge-error"
-                          }`}
-                        >
-                          {offer.status}
-                        </span>
-                      </td>
-                      <td>
-                        <button
-                          className="btn btn-success btn-xs mr-2"
-                          disabled={offer.status !== "Pending"}
-                          onClick={() => handleOfferAction(offer.id, "Approved")}
-                        >
-                          Approve
-                        </button>
-                        <button
-                          className="btn btn-error btn-xs"
-                          disabled={offer.status !== "Pending"}
-                          onClick={() => handleOfferAction(offer.id, "Rejected")}
-                        >
-                          Reject
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {offers.map(offer => (
+                <div
+                  key={offer.id}
+                  className="card bg-base-200 shadow-md cursor-pointer transition-transform hover:scale-105"
+                  onClick={() => (window.location.href = `/producers/${offer.id}`)}
+                >
+                  <div className="card-body">
+                    <h3 className="card-title text-lg font-bold mb-2">{offer.testName}</h3>
+                    <p className="mb-1">
+                      <span className="font-semibold">Researcher:</span> {offer.researcher}
+                    </p>
+                    <p className="mb-1">
+                      <span className="font-semibold">Offered Amount:</span> {offer.offerAmount} SNP
+                    </p>
+                    <span
+                      className={`badge mt-2 ${
+                        offer.status === "Pending"
+                          ? "badge-warning"
+                          : offer.status === "Approved"
+                            ? "badge-success"
+                            : "badge-error"
+                      }`}
+                    >
+                      {offer.status}
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}
